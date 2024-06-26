@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Register{% endblock title %}
+
+{% block navbar %}{% endblock navbar %}
+
+{% block content %}
+<section class="py-5" style="background-color: #F9C442;">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="card shadow-lg p-4">
+                    <div class="card-body text-center">
+                        <img src="{% static 'images/logo.png' %}" alt="Logo" class="img-fluid mb-4" style="max-height: 100px;">
+                        <h2 class="fw-bold mb-4">Register Here</h2>
+                        <form method="post" action="">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="form.first_name" class="form-label">First Name</label>
+                                    {{ form.first_name }}
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="form.last_name" class="form-label">Last Name</label>
+                                    {{ form.last_name }}
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                {{ form.username }}
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email Address</label>
+                                {{ form.email }}
+                            </div>
+                            <div class="mb-3">
+                                <label for="password1" class="form-label">Password</label>
+                                {{ form.password1 }}
+                            </div>
+                            <div class="mb-3">
+                                <label for="password2" class="form-label">Confirm Password</label>
+                                {{ form.password2 }}
+                            </div>
+                            <button type="submit" class="btn btn-warning btn-lg btn-block mb-3">Sign Up</button>
+                        </form>
+                        {% for error in form.errors %}
+                            <p class="text-center mt-3 mb-3 text-danger"><b>{{ error }}</b></p>
+                        {% endfor %}
+                        <p class="text-center mt-3 mb-0">Have an account? <a href="{% url 'login' %}" class="text-dark fw-bold">Login here</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}

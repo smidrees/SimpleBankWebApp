@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}The Bank Urraan{% endblock title %}
+
+{% block navbar %}{% endblock navbar %} {% comment %}override the nav bar on landing page{% endcomment %}
+
+{% block content %}
+<div class="container d-flex flex-column justify-content-center align-items-center min-vh-100">
+    <div class="text-center text-white">
+        <img src="{% static 'images/logo.png' %}" alt="Bank Urraan Logo" height="100">
+        <h1 class="landing-heading mt-3">Welcome to The Bank Urraan</h1>
+        <p class="lead">Your trusted partner in financial success.</p>
+        <a href="{% url 'login' %}" class="btn btn-warning btn-lg mt-3">Login</a>
+    </div>
+</div>
+{% endblock content %}

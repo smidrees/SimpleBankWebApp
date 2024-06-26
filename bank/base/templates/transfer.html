@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %} Transfer {% endblock title %}
+
+{% block content %}
+    <!-- Transfer Section -->
+    <section id="transfer" class="container mt-5 mb-5">
+        <h2 class="text-center">Transfer Funds</h2>
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card shadow">
+                    <div class="card-body p-4 text-center">
+                        <form method="post" action="">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="recipientAccount">Recipient's Account Number</label>
+                                {{ form.destination_account_number }}
+                            </div>
+                            <div class="form-group">
+                                <label for="recipientBank">Recipient's Bank Name</label>
+                                <input type="text" class="form-control form-control-sm" id="recipientBank" placeholder="Enter recipient's bank name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="transferAmount">Transfer Amount</label>
+                                {{ form.amount }}
+                            </div>
+                            <button type="submit" class="btn btn-dark btn-sm btn-block">Transfer</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

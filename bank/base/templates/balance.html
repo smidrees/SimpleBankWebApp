@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block title %} Balance {% endblock title %}
+
+{% block content %}
+
+    <!-- Balance Section -->
+    <section id="balance" class="container mt-4 m-auto">
+        <h2 class="text-center">Current Balance</h2>
+        <div class="card mb-4">
+            <div class="card-body">
+                
+                <h3 class="card-text">Current Balance: ${{account.balance}}</h3>
+                
+            </div>
+        </div>
+        
+        <h3>Transaction History</h3>
+        <form method="get" class="mb-4">
+
+            <div class="form-row">
+                <div class="col-md-2 mb-3">
+                    <label for="start_date">Start Date</label>
+                    <input type="date" class="form-control" name="start_date" id="filterDate" placeholder="Date Greater or Equal">
+                </div>
+                <div class="col-md-2 mb-3">
+                    <label for="end_date">End Date</label>
+                    <input type="date" class="form-control" name="end_date" id="filterDate" placeholder="Date Less or Equal">
+                </div>
+                <div class="col-md-2 mb-3">
+                    <label for="amount">Amount</label>
+                    <input type="number" class="form-control" name="amount" id="filterAmount" placeholder="Filter by amount">
+                </div>
+                <div class="col-md-2 mb-3">
+                    <label for="type">Type</label>
+                    <select class="form-control" id="filterType" name="type">
+                        <option value="">All</option>
+                        <option value="deposit">Deposit</option>
+                        <option value="withdraw">Withdraw</option>
+                        <option value="transfer">Transfer</option>
+                    </select>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="type">Filter</label><br>
+                    <button type="submit" class="btn btn-dark">Apply</button>
+                </div>
+            </div> 
+            
+            
+
+        </form>
+        <ul class="list-group mb-4">
+            {% for transaction in transactions %}
+            <li class="list-group-item">{{transaction.type}}: ${{transaction.amount}} <span class="float-right">{{transaction.transaction_date}}</span></li>
+            {% endfor %}        
+        </ul>
+    </section>
+{% endblock content %}

@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block title %} Dashboard {% endblock title %} 
+
+{% block content %}
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="container mt-4 mb-4 min-vh-100">
+        <h2 class="text-center">Account Overview</h2>
+
+        
+        {% for message in messages %}
+                <p class="mt-3 mb-0 text-info text-center">{{ message }}</p>
+              {% endfor %}
+      
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3>{{ user.first_name }} {{user.last_name}}</h3>
+                {% comment %} {% for info in account %} {% endcomment %}
+                <h4>Current Balance: ${{ account.balance }}</h4>
+                <p>Account Number: {{account.account_number}}</p>
+                {% comment %} {% endfor %} {% endcomment %}
+            </div>
+        </div>
+        <h3>Recent Transactions</h3>
+        <ul class="list-group mb-4">
+            {% if transactions %}
+            {% for transaction in transactions %}
+            <li class="list-group-item">{{transaction.type}}: ${{transaction.amount}} <span class="float-right">{{transaction.transaction_date}}</span></li>
+            {% endfor %}
+            {% else %}
+            <p> No Transactions Maded Yet</p>
+            {% endif %}
+        </ul>
+        <h3>Quick Actions</h3>
+        <div class="d-flex justify-content-around">
+            <a href="{% url "deposit" %}" class="btn btn-dark">Deposit <i class="fa fa-arrow-up"></i></a>
+            <a href="{% url "withdraw" %}" class="btn btn-dark">Withdraw <i class="fa fa-arrow-down"></i></a>
+            <a href="{% url "transfer" %}" class="btn btn-dark">Transfer <i class="fa fa-exchange-alt"></i></a>
+            <a href="{% url "balance" %}" class="btn btn-dark">Balance <i class="fa fa-eye"></i></a>
+        </div>
+    </section>
+{% endblock content %}
+    
