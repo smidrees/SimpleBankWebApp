@@ -19,29 +19,29 @@
                             {% csrf_token %}
                             <div class="row mb-3">
                                 <div class="col-md-6">
-                                    <label for="id_first_name" class="form-label">First Name</label>
+                                    <label for="first_name" class="form-label">First Name</label>
                                     
                                     {{ form.first_name }}
                                 </div>
                                 <div class="col-md-6">
-                                    <label for="id_last_name" class="form-label">Last Name</label>
+                                    <label for="last_name" class="form-label">Last Name</label>
                                     {{ form.last_name }}
                                 </div>
                             </div>
                             <div class="mb-3">
-                                <label for="id_username" class="form-label">Username</label>
+                                <label for="username" class="form-label">Username</label>
                                 {{ form.username }}
                             </div>
                             <div class="mb-3">
-                                <label for="id_email" class="form-label">Email Address</label>
+                                <label for="email" class="form-label">Email Address</label>
                                 {{ form.email }}
                             </div>
                             <div class="mb-3">
-                                <label for="id_password1" class="form-label">Password</label>
+                                <label for="password1" class="form-label">Password</label>
                                 {{ form.password1 }}
                             </div>
                             <div class="mb-3">
-                                <label for="id_password2" class="form-label">Confirm Password</label>
+                                <label for="password2" class="form-label">Confirm Password</label>
                                 {{ form.password2 }}
                             </div>
                             <button type="submit" class="btn btn-warning btn-lg btn-block mb-3">Sign Up</button>
