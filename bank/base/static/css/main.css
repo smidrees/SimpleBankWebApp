@@ -2,10 +2,10 @@
     background-color: #333745 !important;
     /* color: #E63462; */
 }
-/* input{
+input{
     width: 100%;
     text-align: center;
-} */
+}
 
 body{
     background-color: #C2EFB3;
@@ -22,7 +22,7 @@ body{
 
 
 .btn{
-    color: #C2EFB3;
+    color: rgb(47, 57, 255);
 }
 
 .lead,
